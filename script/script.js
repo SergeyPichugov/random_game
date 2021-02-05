@@ -16,27 +16,31 @@ function randomGame() {
    };
    
 
-   let attempts = 1;
+   let attempts = 10;
 
-   const counter = function () {
-      attempts--;
-      console.log(attempts);
-      if (attempts === 0) {
-         let message = confirm('Попытки закончились, хотите сыграть еще ?');
-         if (message === true) {
-            attempts = 1;
-            return start();
-         } else {
-            alert('Игра окончена');
-         }
-      } else {
-         sortNumber(tmp);;
-
-      }
-   };
-
-
+   
    const start = function() {
+      
+      
+      const counter = function () {
+         attempts--;
+         console.log(attempts);
+         if (attempts === 0) {
+            let message = confirm('Попытки закончились, хотите сыграть еще ?');
+            if (message === true) {
+               attempts = 10;
+               return start();
+            } else {
+               alert('Игра окончена');
+            }
+         } else {
+            return sortNumber(tmp);
+   
+         }
+      };
+      
+
+
             
       const mysteryNum = Math.floor((Math.random() * 100) + 1);
       console.log(mysteryNum);
@@ -77,7 +81,7 @@ function randomGame() {
             console.log('угадал');
             let message = confirm('Поздравляю, Вы угадали! Хотели бы сыграть еще?');
             if (message === true) {
-               attempts = 3;
+               attempts = 10;
                return start();
             }
          }
